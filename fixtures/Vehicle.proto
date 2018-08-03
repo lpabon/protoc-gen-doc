@@ -93,8 +93,14 @@ message Vehicle {
    * Represents a vehicle category. E.g. "Sedan" or "Truck".
    */
   message Category {
+    enum Type {
+      UNKNOWN = 0;
+      GOOD = 1;
+      BAD = 2;
+    }
     string code        = 1; /// Category code. E.g. "S".
     string description = 2; /// Category name. E.g. "Sedan".
+    Type type = 3;
   }
 
   int32 id          = 1; /** Unique vehicle ID. */

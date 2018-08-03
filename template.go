@@ -51,6 +51,10 @@ func NewTemplate(descs []*protokit.FileDescriptor) *Template {
 
 			for _, n := range m.Messages {
 				file.Messages = append(file.Messages, parseMessage(n))
+
+				for _, e := range n.Enums {
+					file.Enums = append(file.Enums, parseEnum(e))
+				}
 			}
 
 			for _, e := range m.Enums {

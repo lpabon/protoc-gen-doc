@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	//	"io/ioutil"
 
 	"github.com/Masterminds/sprig"
 
@@ -104,6 +105,9 @@ func RenderTemplate(kind RenderType, template *Template, inputTemplate string) (
 	if err != nil {
 		return nil, err
 	}
+
+	//buf, _ := json.MarshalIndent(template, "", " ")
+	//ioutil.WriteFile("jsonoutput", buf, 0755)
 
 	return processor.Apply(template)
 }
